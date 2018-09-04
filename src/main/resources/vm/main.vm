@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <style>
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            border-color: black;
+            border-width: 1px;
+            font-size: 4vw;
+            background: rgba(156, 161, 151, 0.44);
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+        .menu{
+            text-align: center;
+            font-size: 4vw;
+            margin: auto;
+            width: 50%;
+        }
+        footer {
+            position: absolute;
+            bottom: 5px;
+            left: 10%;
+            width: 80%;
+            height: 30px;
+            background: palegoldenrod;
+            text-align: center;
+        }
+    </style>
+</head>
+<br>
+    <div class="menu">
+        <a class="button" href="duels">Дуэли</a></br>
+        <a class="button" href="logout">Выход</a>
+    </div>
+    <footer>
+        #set ($footer = "")
+        #if($page_gen)
+            #set ($footer = $footer + $page_gen)
+        #end
+        #if($db_req)
+            #set ($footer = $footer + ", " + $db_req)
+        #end
+        $footer
+    </footer>
+</body>
+</html>

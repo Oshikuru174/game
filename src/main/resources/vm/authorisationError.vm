@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Authorisation Error</title>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 5px;
+            left: 10%;
+            width: 80%;
+            height: 30px;
+            background: palegoldenrod;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Authorisation Error</h1>
+<footer>
+    #set ($footer = "")
+    #if($page_gen)
+        #set ($footer = $footer + $page_gen)
+    #end
+    #if($db_req)
+        #set ($footer = $footer + ", " + $db_req)
+    #end
+    $footer
+</footer>
+</body>
+</html>

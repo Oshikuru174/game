@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    #if($timer)
+        <meta http-equiv="refresh" content="$timer">
+    #end
+    <title>Дуэли</title>
+    <style>
+        button {
+            display: block;
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+            font-size: 4vw;
+        }
+        .rating{
+            text-align: center;
+            font-size: 4vw;
+        }
+        footer {
+            position: absolute;
+            bottom: 5px;
+            left: 10%;
+            width: 80%;
+            height: 30px;
+            background: palegoldenrod;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    #if($timer)
+        <form action = "" method = "post">
+            <button type="submit" name="matching" value="stop">Остановить поиск</button>
+        </form>
+    #else
+        <form action = "" method = "post">
+            <button type="submit" name="matching" value="start">Поиск противника</button>
+        </form>
+    #end
+    #if($rating)
+    <div class="rating">
+        Рейтинг: $rating
+    </div>
+    #end
+
+<footer>
+    #set ($footer = "")
+    #if($page_gen)
+        #set ($footer = $footer + $page_gen)
+    #end
+    #if($db_req)
+        #set ($footer = $footer + ", " + $db_req)
+    #end
+    $footer
+</footer>
+</body>
+</html>
